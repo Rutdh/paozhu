@@ -8,55 +8,55 @@
 
 #include "httppeer.h" 
 
-#include "testhttpclient.h"
-#include "testmysqlinsert.h"
-#include "testrestfulpath.h"
-#include "testdownloadauth.h"
-#include "testmodelfromjson.h"
-#include "techempower.h"
-#include "teststrip_html.h"
-#include "testsoft_remove.h"
-#include "teststr_join.h"
-#include "test_reverse.h"
-#include "test_co_handle.h"
-#include "testrand.h"
-#include "testormcache.h"
-#include "teststr_trim.h"
 #include "testsendmail.h"
+#include "testsessionid.h"
 #include "superadmin/supermain.h"
-#include "admin/articles.h"
+#include "admin/main.h"
+#include "admin/category.h"
 #include "admin/marproduct.h"
 #include "admin/topics.h"
 #include "admin/marbrand.h"
+#include "admin/articles.h"
 #include "admin/attachfile.h"
-#include "admin/category.h"
 #include "admin/marhome.h"
-#include "admin/main.h"
-#include "testformpost.h"
-#include "teststr2int.h"
-#include "testfield_num.h"
-#include "testqrcode.h"
-#include "imageapi.h"
+#include "testmodelfromjson.h"
+#include "testjsonreflect.h"
+#include "test_reverse.h"
+#include "testsiteid.h"
+#include "testcors.h"
 #include "testpzcache.h"
 #include "testhello.h"
-#include "testsitepath.h"
-#include "testto_tree.h"
 #include "testcmake.h"
-#include "testjsonreflect.h"
-#include "testaddclienttask.h"
-#include "testormclient.h"
-#include "testmarkdown.h"
-#include "testcommit.h"
-#include "apicrudtest.h"
-#include "testpinyin.h"
-#include "testmoney_num.h"
-#include "testipsearch.h"
-#include "testcowaitclient.h"
-#include "testcors.h"
-#include "testsqltuple.h"
-#include "testsiteid.h"
-#include "testsessionid.h"
 #include "devcors.h"
+#include "testcommit.h"
+#include "testrand.h"
+#include "apicrudtest.h"
+#include "testfield_num.h"
+#include "testormclient.h"
+#include "teststrip_html.h"
+#include "imageapi.h"
+#include "testormcache.h"
+#include "testipsearch.h"
+#include "testsoft_remove.h"
+#include "testqrcode.h"
+#include "testsqltuple.h"
+#include "teststr_join.h"
+#include "testaddclienttask.h"
+#include "teststr_trim.h"
+#include "testformpost.h"
+#include "testcowaitclient.h"
+#include "testto_tree.h"
+#include "testrestfulpath.h"
+#include "testmysqlinsert.h"
+#include "testhttpclient.h"
+#include "testpinyin.h"
+#include "testdownloadauth.h"
+#include "techempower.h"
+#include "teststr2int.h"
+#include "testmarkdown.h"
+#include "test_co_handle.h"
+#include "testmoney_num.h"
+#include "testsitepath.h"
  
 namespace http
 { 
@@ -66,62 +66,14 @@ namespace http
         struct regmethold_t temp;
 
 		temp.pre = nullptr;
-		temp.regfun = testhttpclient_get_body;
-		methodcallback.emplace("testhttpclient1",temp);
-		temp.pre = nullptr;
-		temp.regfun = testhttpclient_get_timebody;
-		methodcallback.emplace("testhttpclient3",temp);
-		temp.pre = nullptr;
-		temp.regfun = testhttpclient_get_file;
-		methodcallback.emplace("testhttpclient2",temp);
-		temp.pre = nullptr;
-		temp.regfun = testmysqlinsert;
-		methodcallback.emplace("minsert",temp);
-		temp.pre = nullptr;
-		temp.regfun = testmysqlpagebar;
-		methodcallback.emplace("mpagebar",temp);
-		temp.pre = nullptr;
-		temp.regfun = testrestfulpath;
-		methodcallback.emplace("user/info",temp);
-		temp.pre = nullptr;
-		temp.regfun = testrestfulprofilepath;
-		methodcallback.emplace("user/profile",temp);
-		temp.pre = nullptr;
-		temp.regfun = downloadfileauthmethod;
-		methodcallback.emplace("downloadfileauth",temp);
-		temp.pre = nullptr;
-		temp.regfun = testmodelfromjson;
-		methodcallback.emplace("mfromjson",temp);
-		temp.pre = nullptr;
-		temp.regfun = teststrip_html;
-		methodcallback.emplace("teststrip_html",temp);
-		temp.pre = nullptr;
-		temp.regfun = testsoftremove;
-		methodcallback.emplace("testsoftremove",temp);
-		temp.pre = nullptr;
-		temp.regfun = teststrjoin;
-		methodcallback.emplace("teststr_join",temp);
-		temp.pre = nullptr;
-		temp.regfun = testmb_reverse;
-		methodcallback.emplace("testmb_reverse",temp);
-		temp.pre = nullptr;
-		temp.regfun = testrand;
-		methodcallback.emplace("testrand",temp);
-		temp.pre = nullptr;
-		temp.regfun = testormcache;
-		methodcallback.emplace("testormcache",temp);
-		temp.pre = nullptr;
-		temp.regfun = testormcacheb;
-		methodcallback.emplace("testormcacheb",temp);
-		temp.pre = nullptr;
-		temp.regfun = testormcachec;
-		methodcallback.emplace("testormcachec",temp);
-		temp.pre = nullptr;
-		temp.regfun = teststrtrim;
-		methodcallback.emplace("teststr_trim",temp);
-		temp.pre = nullptr;
 		temp.regfun = testsendmaildo;
 		methodcallback.emplace("testsendmaildo",temp);
+		temp.pre = nullptr;
+		temp.regfun = testsetsession;
+		methodcallback.emplace("testsetsession",temp);
+		temp.pre = nullptr;
+		temp.regfun = testshowsession;
+		methodcallback.emplace("testshowsession",temp);
 		temp.pre = nullptr;
 		temp.regfun = superadmin_login;
 		methodcallback.emplace("superadmin/login",temp);
@@ -188,36 +140,75 @@ namespace http
 		temp.pre = superadmin_isloginjson;
 		temp.regfun = superadmin_editpwdpost;
 		methodcallback.emplace("superadmin/editpwdpost",temp);
+		temp.pre = nullptr;
+		temp.regfun = admin_login;
+		methodcallback.emplace("admin/login",temp);
+		temp.pre = nullptr;
+		temp.regfun = admin_loginpost;
+		methodcallback.emplace("admin/loginpost",temp);
+		temp.pre = nullptr;
+		temp.regfun = admin_logout;
+		methodcallback.emplace("admin/logout",temp);
+		temp.pre = nullptr;
+		temp.regfun = admin_islogin;
+		methodcallback.emplace("admin/islogin",temp);
+		temp.pre = nullptr;
+		temp.regfun = admin_isloginjson;
+		methodcallback.emplace("admin/isloginjson",temp);
 		temp.pre = admin_islogin;
-		temp.regfun = admin_addarticle;
-		methodcallback.emplace("admin/addarticle",temp);
+		temp.regfun = admin_main;
+		methodcallback.emplace("admin/main",temp);
 		temp.pre = admin_islogin;
-		temp.regfun = admin_addarticlepost;
-		methodcallback.emplace("admin/addarticlepost",temp);
+		temp.regfun = admin_welcome;
+		methodcallback.emplace("admin/welcome",temp);
 		temp.pre = admin_islogin;
-		temp.regfun = admin_editarticle;
-		methodcallback.emplace("admin/editarticle",temp);
+		temp.regfun = admin_siteinfo;
+		methodcallback.emplace("admin/siteinfo",temp);
 		temp.pre = admin_islogin;
-		temp.regfun = admin_editarticlepost;
-		methodcallback.emplace("admin/editarticlepost",temp);
-		temp.pre = admin_isloginjson;
-		temp.regfun = admin_deletearticle;
-		methodcallback.emplace("admin/deletearticle",temp);
-		temp.pre = admin_isloginjson;
-		temp.regfun = admin_gettoparticle;
-		methodcallback.emplace("admin/gettoparticle",temp);
-		temp.pre = admin_isloginjson;
-		temp.regfun = admin_updatearticlesort;
-		methodcallback.emplace("admin/updatearticlesort",temp);
-		temp.pre = admin_isloginjson;
-		temp.regfun = admin_updatearticleview;
-		methodcallback.emplace("admin/updatearticleview",temp);
-		temp.pre = admin_isloginjson;
-		temp.regfun = admin_updatearticleishome;
-		methodcallback.emplace("admin/updatearticleishome",temp);
+		temp.regfun = admin_siteinfopost;
+		methodcallback.emplace("admin/siteinfopost",temp);
 		temp.pre = admin_islogin;
-		temp.regfun = admin_listarticle;
-		methodcallback.emplace("admin/listarticle",temp);
+		temp.regfun = admin_footscript;
+		methodcallback.emplace("admin/footscript",temp);
+		temp.pre = admin_islogin;
+		temp.regfun = admin_footscriptpost;
+		methodcallback.emplace("admin/footscriptpost",temp);
+		temp.pre = admin_islogin;
+		temp.regfun = admin_copyright;
+		methodcallback.emplace("admin/copyright",temp);
+		temp.pre = admin_islogin;
+		temp.regfun = admin_copyrightpost;
+		methodcallback.emplace("admin/copyrightpost",temp);
+		temp.pre = admin_islogin;
+		temp.regfun = admin_sitelogo;
+		methodcallback.emplace("admin/sitelogo",temp);
+		temp.pre = admin_islogin;
+		temp.regfun = admin_sitelogopost;
+		methodcallback.emplace("admin/sitelogopost",temp);
+		temp.pre = admin_islogin;
+		temp.regfun = admin_sitebannerpost;
+		methodcallback.emplace("admin/sitebannerpost",temp);
+		temp.pre = admin_islogin;
+		temp.regfun = admin_userinfo;
+		methodcallback.emplace("admin/userinfo",temp);
+		temp.pre = admin_islogin;
+		temp.regfun = admin_editpassword;
+		methodcallback.emplace("admin/editpassword",temp);
+		temp.pre = admin_islogin;
+		temp.regfun = admin_editpwdpost;
+		methodcallback.emplace("admin/editpwdpost",temp);
+		temp.pre = admin_islogin;
+		temp.regfun = admin_marcatalogue;
+		methodcallback.emplace("admin/marcatalogue",temp);
+		temp.pre = admin_islogin;
+		temp.regfun = admin_addcataloguepost;
+		methodcallback.emplace("admin/addcataloguepost",temp);
+		temp.pre = admin_islogin;
+		temp.regfun = admin_editcataloguepost;
+		methodcallback.emplace("admin/editcataloguepost",temp);
+		temp.pre = admin_islogin;
+		temp.regfun = admin_deletecatalogue;
+		methodcallback.emplace("admin/deletecatalogue",temp);
 		temp.pre = admin_islogin;
 		temp.regfun = admin_addproduct;
 		methodcallback.emplace("admin/addproduct",temp);
@@ -327,6 +318,36 @@ namespace http
 		temp.regfun = admin_updatebrandsort;
 		methodcallback.emplace("admin/updatebrandsort",temp);
 		temp.pre = admin_islogin;
+		temp.regfun = admin_addarticle;
+		methodcallback.emplace("admin/addarticle",temp);
+		temp.pre = admin_islogin;
+		temp.regfun = admin_addarticlepost;
+		methodcallback.emplace("admin/addarticlepost",temp);
+		temp.pre = admin_islogin;
+		temp.regfun = admin_editarticle;
+		methodcallback.emplace("admin/editarticle",temp);
+		temp.pre = admin_islogin;
+		temp.regfun = admin_editarticlepost;
+		methodcallback.emplace("admin/editarticlepost",temp);
+		temp.pre = admin_isloginjson;
+		temp.regfun = admin_deletearticle;
+		methodcallback.emplace("admin/deletearticle",temp);
+		temp.pre = admin_isloginjson;
+		temp.regfun = admin_gettoparticle;
+		methodcallback.emplace("admin/gettoparticle",temp);
+		temp.pre = admin_isloginjson;
+		temp.regfun = admin_updatearticlesort;
+		methodcallback.emplace("admin/updatearticlesort",temp);
+		temp.pre = admin_isloginjson;
+		temp.regfun = admin_updatearticleview;
+		methodcallback.emplace("admin/updatearticleview",temp);
+		temp.pre = admin_isloginjson;
+		temp.regfun = admin_updatearticleishome;
+		methodcallback.emplace("admin/updatearticleishome",temp);
+		temp.pre = admin_islogin;
+		temp.regfun = admin_listarticle;
+		methodcallback.emplace("admin/listarticle",temp);
+		temp.pre = admin_islogin;
 		temp.regfun = attachfile_gateway;
 		methodcallback.emplace("attachfile/gateway",temp);
 		temp.pre = admin_islogin;
@@ -347,18 +368,6 @@ namespace http
 		temp.pre = admin_islogin;
 		temp.regfun = admin_attachselectfiles;
 		methodcallback.emplace("admin/attachselectfiles",temp);
-		temp.pre = admin_islogin;
-		temp.regfun = admin_marcatalogue;
-		methodcallback.emplace("admin/marcatalogue",temp);
-		temp.pre = admin_islogin;
-		temp.regfun = admin_addcataloguepost;
-		methodcallback.emplace("admin/addcataloguepost",temp);
-		temp.pre = admin_islogin;
-		temp.regfun = admin_editcataloguepost;
-		methodcallback.emplace("admin/editcataloguepost",temp);
-		temp.pre = admin_islogin;
-		temp.regfun = admin_deletecatalogue;
-		methodcallback.emplace("admin/deletecatalogue",temp);
 		temp.pre = admin_islogin;
 		temp.regfun = admin_marhome;
 		methodcallback.emplace("admin/marhome",temp);
@@ -411,62 +420,116 @@ namespace http
 		temp.regfun = admin_edithomeblockmulit;
 		methodcallback.emplace("admin/edithomeblockmulit",temp);
 		temp.pre = nullptr;
-		temp.regfun = admin_login;
-		methodcallback.emplace("admin/login",temp);
+		temp.regfun = testmodelfromjson;
+		methodcallback.emplace("mfromjson",temp);
 		temp.pre = nullptr;
-		temp.regfun = admin_loginpost;
-		methodcallback.emplace("admin/loginpost",temp);
+		temp.regfun = testjsonreflect;
+		methodcallback.emplace("testjsonreflect",temp);
 		temp.pre = nullptr;
-		temp.regfun = admin_logout;
-		methodcallback.emplace("admin/logout",temp);
+		temp.regfun = testmb_reverse;
+		methodcallback.emplace("testmb_reverse",temp);
 		temp.pre = nullptr;
-		temp.regfun = admin_islogin;
-		methodcallback.emplace("admin/islogin",temp);
+		temp.regfun = testsiteid;
+		methodcallback.emplace("testsiteid",temp);
 		temp.pre = nullptr;
-		temp.regfun = admin_isloginjson;
-		methodcallback.emplace("admin/isloginjson",temp);
-		temp.pre = admin_islogin;
-		temp.regfun = admin_main;
-		methodcallback.emplace("admin/main",temp);
-		temp.pre = admin_islogin;
-		temp.regfun = admin_welcome;
-		methodcallback.emplace("admin/welcome",temp);
-		temp.pre = admin_islogin;
-		temp.regfun = admin_siteinfo;
-		methodcallback.emplace("admin/siteinfo",temp);
-		temp.pre = admin_islogin;
-		temp.regfun = admin_siteinfopost;
-		methodcallback.emplace("admin/siteinfopost",temp);
-		temp.pre = admin_islogin;
-		temp.regfun = admin_footscript;
-		methodcallback.emplace("admin/footscript",temp);
-		temp.pre = admin_islogin;
-		temp.regfun = admin_footscriptpost;
-		methodcallback.emplace("admin/footscriptpost",temp);
-		temp.pre = admin_islogin;
-		temp.regfun = admin_copyright;
-		methodcallback.emplace("admin/copyright",temp);
-		temp.pre = admin_islogin;
-		temp.regfun = admin_copyrightpost;
-		methodcallback.emplace("admin/copyrightpost",temp);
-		temp.pre = admin_islogin;
-		temp.regfun = admin_sitelogo;
-		methodcallback.emplace("admin/sitelogo",temp);
-		temp.pre = admin_islogin;
-		temp.regfun = admin_sitelogopost;
-		methodcallback.emplace("admin/sitelogopost",temp);
-		temp.pre = admin_islogin;
-		temp.regfun = admin_sitebannerpost;
-		methodcallback.emplace("admin/sitebannerpost",temp);
-		temp.pre = admin_islogin;
-		temp.regfun = admin_userinfo;
-		methodcallback.emplace("admin/userinfo",temp);
-		temp.pre = admin_islogin;
-		temp.regfun = admin_editpassword;
-		methodcallback.emplace("admin/editpassword",temp);
-		temp.pre = admin_islogin;
-		temp.regfun = admin_editpwdpost;
-		methodcallback.emplace("admin/editpwdpost",temp);
+		temp.regfun = testcors;
+		methodcallback.emplace("api/user/message",temp);
+		temp.pre = nullptr;
+		temp.regfun = testcorssimple;
+		methodcallback.emplace("api/user/info",temp);
+		temp.pre = nullptr;
+		temp.regfun = testpzcache;
+		methodcallback.emplace("testcache",temp);
+		temp.pre = nullptr;
+		temp.regfun = testshowcache;
+		methodcallback.emplace("testshowcache",temp);
+		temp.pre = nullptr;
+		temp.regfun = testhello;
+		methodcallback.emplace("hello",temp);
+		temp.pre = nullptr;
+		temp.regfun = testhellobusy;
+		methodcallback.emplace("hellobusy",temp);
+		temp.pre = nullptr;
+		temp.regfun = testcmake;
+		methodcallback.emplace("ccmake",temp);
+		temp.pre = nullptr;
+		temp.regfun = testcauto;
+		methodcallback.emplace("ccauto",temp);
+		temp.pre = nullptr;
+		temp.regfun = api_dev_hostcors;
+		methodcallback.emplace("api/dev/hostcors",temp);
+		temp.pre = nullptr;
+		temp.regfun = testcommit;
+		methodcallback.emplace("testcommit",temp);
+		temp.pre = nullptr;
+		temp.regfun = testrand;
+		methodcallback.emplace("testrand",temp);
+		temp.pre = nullptr;
+		temp.regfun = pxapidepartmentsaddpost;
+		methodcallback.emplace("api/departments/addpost",temp);
+		temp.pre = nullptr;
+		temp.regfun = pxapidepartmentseditpost;
+		methodcallback.emplace("api/departments/editpost",temp);
+		temp.pre = nullptr;
+		temp.regfun = pxapidepartmentslist;
+		methodcallback.emplace("api/departments/list",temp);
+		temp.pre = nullptr;
+		temp.regfun = pxapipagesdepartlist;
+		methodcallback.emplace("api/departments/deletedep",temp);
+		temp.pre = nullptr;
+		temp.regfun = testfieldnum;
+		methodcallback.emplace("testfieldnum",temp);
+		temp.pre = nullptr;
+		temp.regfun = testormclient;
+		methodcallback.emplace("testormclient",temp);
+		temp.pre = nullptr;
+		temp.regfun = teststrip_html;
+		methodcallback.emplace("teststrip_html",temp);
+		temp.pre = nullptr;
+		temp.regfun = imageapi_gateway;
+		methodcallback.emplace("imageapi/gateway",temp);
+		temp.pre = nullptr;
+		temp.regfun = imageapi_upload;
+		methodcallback.emplace("imageapi/upload",temp);
+		temp.pre = nullptr;
+		temp.regfun = testormcache;
+		methodcallback.emplace("testormcache",temp);
+		temp.pre = nullptr;
+		temp.regfun = testormcacheb;
+		methodcallback.emplace("testormcacheb",temp);
+		temp.pre = nullptr;
+		temp.regfun = testormcachec;
+		methodcallback.emplace("testormcachec",temp);
+		temp.pre = nullptr;
+		temp.regfun = testipsearch;
+		methodcallback.emplace("testipsearch",temp);
+		temp.pre = nullptr;
+		temp.regfun = testipsearchget;
+		methodcallback.emplace("ipsearchget",temp);
+		temp.pre = nullptr;
+		temp.regfun = testsoftremove;
+		methodcallback.emplace("testsoftremove",temp);
+		temp.pre = nullptr;
+		temp.regfun = testqrcode;
+		methodcallback.emplace("testqrcode",temp);
+		temp.pre = nullptr;
+		temp.regfun = testsqltuple;
+		methodcallback.emplace("mtuple",temp);
+		temp.pre = nullptr;
+		temp.regfun = teststrjoin;
+		methodcallback.emplace("teststr_join",temp);
+		temp.pre = nullptr;
+		temp.regfun = testaddclienttaskpre;
+		methodcallback.emplace("testnotaddclienttaskpre",temp);
+		temp.pre = testaddclienttaskpre;
+		temp.regfun = testaddclienttask;
+		methodcallback.emplace("testaddclienttask",temp);
+		temp.pre = nullptr;
+		temp.regfun = testexecuteclienttask;
+		methodcallback.emplace("executeclienttask",temp);
+		temp.pre = nullptr;
+		temp.regfun = teststrtrim;
+		methodcallback.emplace("teststr_trim",temp);
 		temp.pre = nullptr;
 		temp.regfun = testurlencoded;
 		methodcallback.emplace("tformpost",temp);
@@ -482,93 +545,6 @@ namespace http
 		temp.pre = nullptr;
 		temp.regfun = testuploadpostfile;
 		methodcallback.emplace("addpostfile",temp);
-		temp.pre = nullptr;
-		temp.regfun = teststr2int;
-		methodcallback.emplace("teststr2int",temp);
-		temp.pre = nullptr;
-		temp.regfun = testfieldnum;
-		methodcallback.emplace("testfieldnum",temp);
-		temp.pre = nullptr;
-		temp.regfun = testqrcode;
-		methodcallback.emplace("testqrcode",temp);
-		temp.pre = nullptr;
-		temp.regfun = imageapi_gateway;
-		methodcallback.emplace("imageapi/gateway",temp);
-		temp.pre = nullptr;
-		temp.regfun = imageapi_upload;
-		methodcallback.emplace("imageapi/upload",temp);
-		temp.pre = nullptr;
-		temp.regfun = testpzcache;
-		methodcallback.emplace("testcache",temp);
-		temp.pre = nullptr;
-		temp.regfun = testshowcache;
-		methodcallback.emplace("testshowcache",temp);
-		temp.pre = nullptr;
-		temp.regfun = testhello;
-		methodcallback.emplace("hello",temp);
-		temp.pre = nullptr;
-		temp.regfun = testhellobusy;
-		methodcallback.emplace("hellobusy",temp);
-		temp.pre = nullptr;
-		temp.regfun = testsitepath;
-		methodcallback.emplace("testsitepath",temp);
-		temp.pre = nullptr;
-		temp.regfun = testtotree;
-		methodcallback.emplace("testtotree",temp);
-		temp.pre = nullptr;
-		temp.regfun = testcmake;
-		methodcallback.emplace("ccmake",temp);
-		temp.pre = nullptr;
-		temp.regfun = testcauto;
-		methodcallback.emplace("ccauto",temp);
-		temp.pre = nullptr;
-		temp.regfun = testjsonreflect;
-		methodcallback.emplace("testjsonreflect",temp);
-		temp.pre = nullptr;
-		temp.regfun = testaddclienttaskpre;
-		methodcallback.emplace("testnotaddclienttaskpre",temp);
-		temp.pre = testaddclienttaskpre;
-		temp.regfun = testaddclienttask;
-		methodcallback.emplace("testaddclienttask",temp);
-		temp.pre = nullptr;
-		temp.regfun = testexecuteclienttask;
-		methodcallback.emplace("executeclienttask",temp);
-		temp.pre = nullptr;
-		temp.regfun = testormclient;
-		methodcallback.emplace("testormclient",temp);
-		temp.pre = nullptr;
-		temp.regfun = testmarkdown2html;
-		methodcallback.emplace("testmarkdown2html",temp);
-		temp.pre = nullptr;
-		temp.regfun = testcommit;
-		methodcallback.emplace("testcommit",temp);
-		temp.pre = nullptr;
-		temp.regfun = pxapidepartmentsaddpost;
-		methodcallback.emplace("api/departments/addpost",temp);
-		temp.pre = nullptr;
-		temp.regfun = pxapidepartmentseditpost;
-		methodcallback.emplace("api/departments/editpost",temp);
-		temp.pre = nullptr;
-		temp.regfun = pxapidepartmentslist;
-		methodcallback.emplace("api/departments/list",temp);
-		temp.pre = nullptr;
-		temp.regfun = pxapipagesdepartlist;
-		methodcallback.emplace("api/departments/deletedep",temp);
-		temp.pre = nullptr;
-		temp.regfun = testpinyin;
-		methodcallback.emplace("testpinyin",temp);
-		temp.pre = nullptr;
-		temp.regfun = testpinyin_loaded;
-		methodcallback.emplace("testpinyin_loaded",temp);
-		temp.pre = nullptr;
-		temp.regfun = testtestmoneynum;
-		methodcallback.emplace("testtestmoneynum",temp);
-		temp.pre = nullptr;
-		temp.regfun = testipsearch;
-		methodcallback.emplace("testipsearch",temp);
-		temp.pre = nullptr;
-		temp.regfun = testipsearchget;
-		methodcallback.emplace("ipsearchget",temp);
 		temp.pre = nullptr;
 		temp.regfun = testhttpclient_cowait_php;
 		methodcallback.emplace("testcowaitclient4",temp);
@@ -594,26 +570,50 @@ namespace http
 		temp.regfun = testhttpclient_getdownfile;
 		methodcallback.emplace("downfilecontent",temp);
 		temp.pre = nullptr;
-		temp.regfun = testcors;
-		methodcallback.emplace("api/user/message",temp);
+		temp.regfun = testtotree;
+		methodcallback.emplace("testtotree",temp);
 		temp.pre = nullptr;
-		temp.regfun = testcorssimple;
-		methodcallback.emplace("api/user/info",temp);
+		temp.regfun = testrestfulpath;
+		methodcallback.emplace("user/info",temp);
 		temp.pre = nullptr;
-		temp.regfun = testsqltuple;
-		methodcallback.emplace("mtuple",temp);
+		temp.regfun = testrestfulprofilepath;
+		methodcallback.emplace("user/profile",temp);
 		temp.pre = nullptr;
-		temp.regfun = testsiteid;
-		methodcallback.emplace("testsiteid",temp);
+		temp.regfun = testmysqlinsert;
+		methodcallback.emplace("minsert",temp);
 		temp.pre = nullptr;
-		temp.regfun = testsetsession;
-		methodcallback.emplace("testsetsession",temp);
+		temp.regfun = testmysqlpagebar;
+		methodcallback.emplace("mpagebar",temp);
 		temp.pre = nullptr;
-		temp.regfun = testshowsession;
-		methodcallback.emplace("testshowsession",temp);
+		temp.regfun = testhttpclient_get_body;
+		methodcallback.emplace("testhttpclient1",temp);
 		temp.pre = nullptr;
-		temp.regfun = api_dev_hostcors;
-		methodcallback.emplace("api/dev/hostcors",temp);
+		temp.regfun = testhttpclient_get_timebody;
+		methodcallback.emplace("testhttpclient3",temp);
+		temp.pre = nullptr;
+		temp.regfun = testhttpclient_get_file;
+		methodcallback.emplace("testhttpclient2",temp);
+		temp.pre = nullptr;
+		temp.regfun = testpinyin;
+		methodcallback.emplace("testpinyin",temp);
+		temp.pre = nullptr;
+		temp.regfun = testpinyin_loaded;
+		methodcallback.emplace("testpinyin_loaded",temp);
+		temp.pre = nullptr;
+		temp.regfun = downloadfileauthmethod;
+		methodcallback.emplace("downloadfileauth",temp);
+		temp.pre = nullptr;
+		temp.regfun = teststr2int;
+		methodcallback.emplace("teststr2int",temp);
+		temp.pre = nullptr;
+		temp.regfun = testmarkdown2html;
+		methodcallback.emplace("testmarkdown2html",temp);
+		temp.pre = nullptr;
+		temp.regfun = testtestmoneynum;
+		methodcallback.emplace("testtestmoneynum",temp);
+		temp.pre = nullptr;
+		temp.regfun = testsitepath;
+		methodcallback.emplace("testsitepath",temp);
 
 
     }
@@ -621,6 +621,12 @@ namespace http
     void _initauto_co_control_httpmethodregto(std::map<std::string, regmethold_co_t> &methodcallback)
     {
         struct regmethold_co_t temp;
+		temp.pre = nullptr;
+		temp.regfun = testhttpclient21_cowait_body;
+		methodcallback.emplace("testcowaitclient21",temp);
+		temp.pre = nullptr;
+		temp.regfun = testhttpclient22_cowait_body;
+		methodcallback.emplace("testcowaitclient22",temp);
 		temp.pre = nullptr;
 		temp.regfun = techempowerplaintext;
 		methodcallback.emplace("plaintext",temp);
@@ -648,12 +654,6 @@ namespace http
 		temp.pre = nullptr;
 		temp.regfun = test_co_handle;
 		methodcallback.emplace("testcohandle",temp);
-		temp.pre = nullptr;
-		temp.regfun = testhttpclient21_cowait_body;
-		methodcallback.emplace("testcowaitclient21",temp);
-		temp.pre = nullptr;
-		temp.regfun = testhttpclient22_cowait_body;
-		methodcallback.emplace("testcowaitclient22",temp);
 
 
     }
